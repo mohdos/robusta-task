@@ -17,6 +17,12 @@
 		5BE51D23275425CE0052049F /* RobustaTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D22275425CE0052049F /* RobustaTaskTests.swift */; };
 		5BE51D2D275425CE0052049F /* RobustaTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D2C275425CE0052049F /* RobustaTaskUITests.swift */; };
 		5BE51D2F275425CE0052049F /* RobustaTaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D2E275425CE0052049F /* RobustaTaskUITestsLaunchTests.swift */; };
+		5BE51D4227542C110052049F /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D4127542C110052049F /* HttpHelper.swift */; };
+		5BE51D4427542C3A0052049F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D4327542C3A0052049F /* Repository.swift */; };
+		5BE51D4627542C6F0052049F /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D4527542C6F0052049F /* Owner.swift */; };
+		5BE51D49275431280052049F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D48275431280052049F /* CustomErrors.swift */; };
+		5BE51D4B2754341A0052049F /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D4A275434190052049F /* Api.swift */; };
+		5BE51D4D27543F290052049F /* Extensions+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D4C27543F290052049F /* Extensions+String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,12 @@
 		5BE51D28275425CE0052049F /* RobustaTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RobustaTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE51D2C275425CE0052049F /* RobustaTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobustaTaskUITests.swift; sourceTree = "<group>"; };
 		5BE51D2E275425CE0052049F /* RobustaTaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobustaTaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5BE51D4127542C110052049F /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Http\U0010Helper.swift"; sourceTree = "<group>"; };
+		5BE51D4327542C3A0052049F /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		5BE51D4527542C6F0052049F /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		5BE51D48275431280052049F /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
+		5BE51D4A275434190052049F /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		5BE51D4C27543F290052049F /* Extensions+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+String.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +113,10 @@
 		5BE51D07275425CD0052049F /* RobustaTask */ = {
 			isa = PBXGroup;
 			children = (
+				5BE51D47275431170052049F /* CustomClasses */,
+				5BE51D4027542BF20052049F /* Networking */,
+				5BE51D08275425CD0052049F /* AppDelegate.swift */,
+				5BE51D0A275425CD0052049F /* SceneDelegate.swift */,
 				5BE51D3F275426010052049F /* Extensions */,
 				5BE51D3E275425FA0052049F /* Helpers */,
 				5BE51D3D275425F20052049F /* Controllers */,
@@ -133,6 +149,8 @@
 		5BE51D3B275425E30052049F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5BE51D4327542C3A0052049F /* Repository.swift */,
+				5BE51D4527542C6F0052049F /* Owner.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -149,8 +167,6 @@
 		5BE51D3D275425F20052049F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5BE51D08275425CD0052049F /* AppDelegate.swift */,
-				5BE51D0A275425CD0052049F /* SceneDelegate.swift */,
 				5BE51D0C275425CD0052049F /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -166,8 +182,26 @@
 		5BE51D3F275426010052049F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5BE51D4C27543F290052049F /* Extensions+String.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5BE51D4027542BF20052049F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5BE51D4127542C110052049F /* HttpHelper.swift */,
+				5BE51D4A275434190052049F /* Api.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		5BE51D47275431170052049F /* CustomClasses */ = {
+			isa = PBXGroup;
+			children = (
+				5BE51D48275431280052049F /* CustomErrors.swift */,
+			);
+			path = CustomClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,10 +335,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BE51D4B2754341A0052049F /* Api.swift in Sources */,
+				5BE51D4227542C110052049F /* HttpHelper.swift in Sources */,
 				5BE51D0D275425CD0052049F /* ViewController.swift in Sources */,
+				5BE51D4627542C6F0052049F /* Owner.swift in Sources */,
+				5BE51D4D27543F290052049F /* Extensions+String.swift in Sources */,
 				5BE51D09275425CD0052049F /* AppDelegate.swift in Sources */,
 				5BE51D0B275425CD0052049F /* SceneDelegate.swift in Sources */,
+				5BE51D49275431280052049F /* CustomErrors.swift in Sources */,
 				5BE51D13275425CD0052049F /* RobustaTask.xcdatamodeld in Sources */,
+				5BE51D4427542C3A0052049F /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
