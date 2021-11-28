@@ -101,12 +101,12 @@
 		5BE51D07275425CD0052049F /* RobustaTask */ = {
 			isa = PBXGroup;
 			children = (
-				5BE51D08275425CD0052049F /* AppDelegate.swift */,
-				5BE51D0A275425CD0052049F /* SceneDelegate.swift */,
-				5BE51D0C275425CD0052049F /* ViewController.swift */,
-				5BE51D0E275425CD0052049F /* Main.storyboard */,
+				5BE51D3F275426010052049F /* Extensions */,
+				5BE51D3E275425FA0052049F /* Helpers */,
+				5BE51D3D275425F20052049F /* Controllers */,
+				5BE51D3C275425EC0052049F /* Views */,
+				5BE51D3B275425E30052049F /* Models */,
 				5BE51D14275425CE0052049F /* Assets.xcassets */,
-				5BE51D16275425CE0052049F /* LaunchScreen.storyboard */,
 				5BE51D19275425CE0052049F /* Info.plist */,
 				5BE51D11275425CD0052049F /* RobustaTask.xcdatamodeld */,
 			);
@@ -128,6 +128,46 @@
 				5BE51D2E275425CE0052049F /* RobustaTaskUITestsLaunchTests.swift */,
 			);
 			path = RobustaTaskUITests;
+			sourceTree = "<group>";
+		};
+		5BE51D3B275425E30052049F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5BE51D3C275425EC0052049F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5BE51D0E275425CD0052049F /* Main.storyboard */,
+				5BE51D16275425CE0052049F /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5BE51D3D275425F20052049F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5BE51D08275425CD0052049F /* AppDelegate.swift */,
+				5BE51D0A275425CD0052049F /* SceneDelegate.swift */,
+				5BE51D0C275425CD0052049F /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5BE51D3E275425FA0052049F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5BE51D3F275426010052049F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
