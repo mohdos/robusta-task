@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B07DE092754BEF90058238E /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07DE072754BEF90058238E /* Owner.swift */; };
+		5B07DE0A2754BEF90058238E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07DE082754BEF90058238E /* Repository.swift */; };
+		5B07DE152754C3FB0058238E /* RepositoryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07DE142754C3FB0058238E /* RepositoryMapper.swift */; };
+		5B07DE2F2754C7230058238E /* OwnerMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07DE2E2754C7230058238E /* OwnerMapper.swift */; };
+		5B07DE522754F3410058238E /* Repository+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07DE502754F3410058238E /* Repository+CoreDataClass.swift */; };
+		5B07DE532754F3410058238E /* Repository+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07DE512754F3410058238E /* Repository+CoreDataProperties.swift */; };
+		5B07DE552754F3F10058238E /* Extension+CodingUserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B07DE542754F3F10058238E /* Extension+CodingUserInfoKey.swift */; };
 		5BE51D09275425CD0052049F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D08275425CD0052049F /* AppDelegate.swift */; };
 		5BE51D0B275425CD0052049F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D0A275425CD0052049F /* SceneDelegate.swift */; };
 		5BE51D0D275425CD0052049F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D0C275425CD0052049F /* ViewController.swift */; };
@@ -18,8 +25,6 @@
 		5BE51D2D275425CE0052049F /* RobustaTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D2C275425CE0052049F /* RobustaTaskUITests.swift */; };
 		5BE51D2F275425CE0052049F /* RobustaTaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D2E275425CE0052049F /* RobustaTaskUITestsLaunchTests.swift */; };
 		5BE51D4227542C110052049F /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D4127542C110052049F /* HttpHelper.swift */; };
-		5BE51D4427542C3A0052049F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D4327542C3A0052049F /* Repository.swift */; };
-		5BE51D4627542C6F0052049F /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D4527542C6F0052049F /* Owner.swift */; };
 		5BE51D49275431280052049F /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D48275431280052049F /* CustomErrors.swift */; };
 		5BE51D4B2754341A0052049F /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D4A275434190052049F /* Api.swift */; };
 		5BE51D4D27543F290052049F /* Extensions+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D4C27543F290052049F /* Extensions+String.swift */; };
@@ -43,6 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B07DE072754BEF90058238E /* Owner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		5B07DE082754BEF90058238E /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		5B07DE142754C3FB0058238E /* RepositoryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryMapper.swift; sourceTree = "<group>"; };
+		5B07DE2E2754C7230058238E /* OwnerMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerMapper.swift; sourceTree = "<group>"; };
+		5B07DE502754F3410058238E /* Repository+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B07DE512754F3410058238E /* Repository+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5B07DE542754F3F10058238E /* Extension+CodingUserInfoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CodingUserInfoKey.swift"; sourceTree = "<group>"; };
 		5BE51D05275425CD0052049F /* RobustaTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RobustaTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE51D08275425CD0052049F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BE51D0A275425CD0052049F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,8 +70,6 @@
 		5BE51D2C275425CE0052049F /* RobustaTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobustaTaskUITests.swift; sourceTree = "<group>"; };
 		5BE51D2E275425CE0052049F /* RobustaTaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobustaTaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5BE51D4127542C110052049F /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Http\U0010Helper.swift"; sourceTree = "<group>"; };
-		5BE51D4327542C3A0052049F /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		5BE51D4527542C6F0052049F /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		5BE51D48275431280052049F /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 		5BE51D4A275434190052049F /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		5BE51D4C27543F290052049F /* Extensions+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+String.swift"; sourceTree = "<group>"; };
@@ -90,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B07DE132754C3E60058238E /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				5B07DE142754C3FB0058238E /* RepositoryMapper.swift */,
+				5B07DE2E2754C7230058238E /* OwnerMapper.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
 		5BE51CFC275425CD0052049F = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +132,7 @@
 		5BE51D07275425CD0052049F /* RobustaTask */ = {
 			isa = PBXGroup;
 			children = (
+				5B07DE132754C3E60058238E /* Mappers */,
 				5BE51D47275431170052049F /* CustomClasses */,
 				5BE51D4027542BF20052049F /* Networking */,
 				5BE51D08275425CD0052049F /* AppDelegate.swift */,
@@ -149,8 +169,10 @@
 		5BE51D3B275425E30052049F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5BE51D4327542C3A0052049F /* Repository.swift */,
-				5BE51D4527542C6F0052049F /* Owner.swift */,
+				5B07DE502754F3410058238E /* Repository+CoreDataClass.swift */,
+				5B07DE512754F3410058238E /* Repository+CoreDataProperties.swift */,
+				5B07DE072754BEF90058238E /* Owner.swift */,
+				5B07DE082754BEF90058238E /* Repository.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				5BE51D4C27543F290052049F /* Extensions+String.swift */,
+				5B07DE542754F3F10058238E /* Extension+CodingUserInfoKey.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -335,16 +358,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B07DE092754BEF90058238E /* Owner.swift in Sources */,
 				5BE51D4B2754341A0052049F /* Api.swift in Sources */,
 				5BE51D4227542C110052049F /* HttpHelper.swift in Sources */,
+				5B07DE522754F3410058238E /* Repository+CoreDataClass.swift in Sources */,
 				5BE51D0D275425CD0052049F /* ViewController.swift in Sources */,
-				5BE51D4627542C6F0052049F /* Owner.swift in Sources */,
 				5BE51D4D27543F290052049F /* Extensions+String.swift in Sources */,
+				5B07DE0A2754BEF90058238E /* Repository.swift in Sources */,
+				5B07DE552754F3F10058238E /* Extension+CodingUserInfoKey.swift in Sources */,
+				5B07DE532754F3410058238E /* Repository+CoreDataProperties.swift in Sources */,
+				5B07DE152754C3FB0058238E /* RepositoryMapper.swift in Sources */,
 				5BE51D09275425CD0052049F /* AppDelegate.swift in Sources */,
 				5BE51D0B275425CD0052049F /* SceneDelegate.swift in Sources */,
+				5B07DE2F2754C7230058238E /* OwnerMapper.swift in Sources */,
 				5BE51D49275431280052049F /* CustomErrors.swift in Sources */,
 				5BE51D13275425CD0052049F /* RobustaTask.xcdatamodeld in Sources */,
-				5BE51D4427542C3A0052049F /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class Api
@@ -41,8 +42,14 @@ class Api
             
             case .success(let respData):
                 do {
+                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                        print(CustomErrors.unknownError)
+                        completion?([])
+                        return
+                    }
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    decoder.userInfo[.managedObjectContext] = appDelegate.persistentContainer.viewContext
                     let repositories = try decoder.decode([Repository].self, from: respData)
                     completion?(repositories)
                 }
@@ -57,6 +64,11 @@ class Api
         }
     }
     
+    
+    func getRepositories()
+    {
+        
+    }
     
     
     /// Searches for repositories
@@ -74,11 +86,17 @@ class Api
             
             case .success(let respData):
                 do {
+                    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                        print(CustomErrors.unknownError)
+                        completion?([])
+                        return
+                    }
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    decoder.userInfo[.managedObjectContext] = appDelegate.persistentContainer.viewContext
                     let repositories = try decoder.decode(RepositorySearch.self, from: respData)
                     repositories.items = repositories.items.filter { repo in // filters repos that has the query in their names only (as the api gets all repos with the query in name, description OR Readme)
-                        repo.name.lowercased().contains(query.lowercased())
+                        repo.name?.lowercased().contains(query.lowercased()) ?? false
                     }
                     completion?(repositories.items)
                 }

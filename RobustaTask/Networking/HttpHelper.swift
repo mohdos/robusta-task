@@ -38,7 +38,9 @@ class HttpHelper
                 return
             }
             else if let respData = respData {
-                completion?(.success(respData))
+                DispatchQueue.main.async {
+                    completion?(.success(respData))
+                }
             }
             else
             {

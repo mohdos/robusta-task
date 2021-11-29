@@ -10,6 +10,7 @@ import Foundation
 
 enum CustomErrors: Error, CustomStringConvertible
 {
+    case missingManagedObjectContext
     case unknownError
     case invalidURL
     case custom(description: String)
@@ -22,6 +23,8 @@ enum CustomErrors: Error, CustomStringConvertible
             return "Error parsing URL"
         case .custom(let description):
             return description
+        case .missingManagedObjectContext:
+            return "Missing managed object context"
         }
     }
 }

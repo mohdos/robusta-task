@@ -13,10 +13,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         Api.shared.getAllRepositories { repos in
+            
+//            DispatchQueue.main.async {
+//                print(Date())
+//                RepositoryDec.saveReposToCoreData(repos: repos)
+//                print(Date())
+//            }
+            
             print(repos.count)
+//            Repository.saveRepos(repos: repos)
         }
         
         Api.shared.searchRepository(query: "xy") { repos in
+            print(repos.count)
+        }
+        
+//        Repository.deleteAllData()
+        Repository.fetchSavedRepos(offset: 0, limit: 500) { repos in
             print(repos.count)
         }
     }
