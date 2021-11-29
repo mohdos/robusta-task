@@ -14,6 +14,11 @@
 		5B654ACB275533370077BDB6 /* RepoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B654ACA275533370077BDB6 /* RepoTVC.swift */; };
 		5B654ACD275535160077BDB6 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B654ACC275535160077BDB6 /* Extension+UIImageView.swift */; };
 		5B654ACF275540FD0077BDB6 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B654ACE275540FD0077BDB6 /* Extensions+UIView.swift */; };
+		5B654AD127555EF20077BDB6 /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B654AD027555EF20077BDB6 /* DetailsVC.swift */; };
+		5B654AD42755607A0077BDB6 /* RepoStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B654AD32755607A0077BDB6 /* RepoStatsView.swift */; };
+		5B654AD6275561880077BDB6 /* Image+TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B654AD5275561880077BDB6 /* Image+TextView.swift */; };
+		5B654ADA27556CDD0077BDB6 /* OwnerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B654AD927556CDD0077BDB6 /* OwnerDetailsView.swift */; };
+		5B654ADC275571750077BDB6 /* Extension+UIVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B654ADB275571750077BDB6 /* Extension+UIVC.swift */; };
 		5BE51D09275425CD0052049F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D08275425CD0052049F /* AppDelegate.swift */; };
 		5BE51D0B275425CD0052049F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D0A275425CD0052049F /* SceneDelegate.swift */; };
 		5BE51D0D275425CD0052049F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE51D0C275425CD0052049F /* HomeVC.swift */; };
@@ -55,6 +60,11 @@
 		5B654ACA275533370077BDB6 /* RepoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTVC.swift; sourceTree = "<group>"; };
 		5B654ACC275535160077BDB6 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
 		5B654ACE275540FD0077BDB6 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
+		5B654AD027555EF20077BDB6 /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
+		5B654AD32755607A0077BDB6 /* RepoStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoStatsView.swift; sourceTree = "<group>"; };
+		5B654AD5275561880077BDB6 /* Image+TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+TextView.swift"; sourceTree = "<group>"; };
+		5B654AD927556CDD0077BDB6 /* OwnerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerDetailsView.swift; sourceTree = "<group>"; };
+		5B654ADB275571750077BDB6 /* Extension+UIVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIVC.swift"; sourceTree = "<group>"; };
 		5BE51D05275425CD0052049F /* RobustaTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RobustaTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE51D08275425CD0052049F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BE51D0A275425CD0052049F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +126,16 @@
 				5B654ACA275533370077BDB6 /* RepoTVC.swift */,
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		5B654AD2275560690077BDB6 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				5B654AD32755607A0077BDB6 /* RepoStatsView.swift */,
+				5B654AD5275561880077BDB6 /* Image+TextView.swift */,
+				5B654AD927556CDD0077BDB6 /* OwnerDetailsView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		5BE51CFC275425CD0052049F = {
@@ -184,6 +204,7 @@
 		5BE51D3C275425EC0052049F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5B654AD2275560690077BDB6 /* CustomViews */,
 				5B654AC9275532D30077BDB6 /* TableViewCells */,
 				5BE51D0E275425CD0052049F /* Main.storyboard */,
 				5BE51D16275425CE0052049F /* LaunchScreen.storyboard */,
@@ -195,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				5BE51D0C275425CD0052049F /* HomeVC.swift */,
+				5B654AD027555EF20077BDB6 /* DetailsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -206,6 +228,7 @@
 				5B07DE542754F3F10058238E /* Extension+CodingUserInfoKey.swift */,
 				5B654ACC275535160077BDB6 /* Extension+UIImageView.swift */,
 				5B654ACE275540FD0077BDB6 /* Extensions+UIView.swift */,
+				5B654ADB275571750077BDB6 /* Extension+UIVC.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -367,12 +390,17 @@
 				5B07DE532754F3410058238E /* Repository+CoreDataProperties.swift in Sources */,
 				5BE51D09275425CD0052049F /* AppDelegate.swift in Sources */,
 				5B654ACD275535160077BDB6 /* Extension+UIImageView.swift in Sources */,
+				5B654AD127555EF20077BDB6 /* DetailsVC.swift in Sources */,
+				5B654ADA27556CDD0077BDB6 /* OwnerDetailsView.swift in Sources */,
 				5BE51D0B275425CD0052049F /* SceneDelegate.swift in Sources */,
 				5BE51D49275431280052049F /* CustomErrors.swift in Sources */,
 				5B654ACB275533370077BDB6 /* RepoTVC.swift in Sources */,
+				5B654AD6275561880077BDB6 /* Image+TextView.swift in Sources */,
 				5BE51D13275425CD0052049F /* RobustaTask.xcdatamodeld in Sources */,
 				5B654AC827552DD50077BDB6 /* ContextManager.swift in Sources */,
 				5B654ACF275540FD0077BDB6 /* Extensions+UIView.swift in Sources */,
+				5B654ADC275571750077BDB6 /* Extension+UIVC.swift in Sources */,
+				5B654AD42755607A0077BDB6 /* RepoStatsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

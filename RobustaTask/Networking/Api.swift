@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class Api
 {
     private static let RESULTS_PER_PAGE = 10
@@ -47,7 +46,10 @@ class Api
         self.currentPage += 1
         let returnSavedRepos = { // returns the saved repos from core data
             Repository.fetchSavedRepos(offset: currentPage * Api.RESULTS_PER_PAGE, limit: Api.RESULTS_PER_PAGE) { repos in
-                if repos.isEmpty { self.isDone = true }
+                if repos.isEmpty {
+                    print("REPO IS EMPTY")
+                    self.isDone = true
+                }
                 completion?(repos)
             }
         }
@@ -56,7 +58,7 @@ class Api
             returnSavedRepos()
             return
         }
-        HttpHelper.get(url: baseUrl + ENDPOINTS.repositories.rawValue) { result in
+        HttpHelper.get(url: baseUrl + ENDPOINTS.repositories.rawValue, headers: ["Authorization": "token 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"]) { result in
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)
@@ -77,6 +79,8 @@ class Api
                 catch(let error)
                 {
                     print(error, error.localizedDescription)
+                    let json = try? JSONSerialization.jsonObject(with: respData, options: []) as? [String: Any]
+                    print(json)
                     completion?([])
                     return
                 }
@@ -89,7 +93,7 @@ class Api
     /// - Parameter completion: completion handler to handle the returned repositories
     func getAllRepositories(_ completion: (([Repository]) -> Void)?)
     {
-        HttpHelper.get(url: baseUrl + ENDPOINTS.repositories.rawValue) { result in
+        HttpHelper.get(url: baseUrl + ENDPOINTS.repositories.rawValue, headers: ["Authorization": "token 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"]) { result in
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)
@@ -116,13 +120,18 @@ class Api
     }
     
     
+    
+    /// Gets repository details such as creation date
+    /// - Parameters:
+    ///   - repository: the repository object
+    ///   - completion: handle the repository with details
     func getRepositoryDetails(repository: Repository, _ completion: ((Repository) -> Void)?)
     {
         guard let repoUrl = repository.url else {
             completion?(repository)
             return
         }
-        HttpHelper.get(url: repoUrl, queryParams: nil) { result in
+        HttpHelper.get(url: repoUrl, headers: ["Authorization": "token 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"], queryParams: nil) { result in
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)
@@ -134,7 +143,7 @@ class Api
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     decoder.userInfo[.managedObjectContext] = ContextManager.viewContext
                     let repositoryDetails = try decoder.decode(Repository.self, from: data)
-                    repositoryDetails.save()
+                    repositoryDetails.update()
                     completion?(repositoryDetails)
                     return
                 }
@@ -155,7 +164,7 @@ class Api
     ///   - completion: completion handler to handle the returned matching repositories
     func searchRepository(query: String, page: Int = 0, _ completion: (([Repository]) -> Void)?)
     {
-        HttpHelper.get(url: baseUrl + ENDPOINTS.search.rawValue, queryParams: ["q": query, "per_page": String(Api.RESULTS_PER_PAGE), "page": String(page)]) { result in
+        HttpHelper.get(url: baseUrl + ENDPOINTS.search.rawValue, headers: ["Authorization": "token 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"], queryParams: ["q": query, "per_page": String(Api.RESULTS_PER_PAGE), "page": String(page)]) { result in
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)

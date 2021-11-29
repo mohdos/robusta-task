@@ -19,10 +19,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="2if-20-JiU"/>
+                    <connections>
+                        <segue destination="r8o-rp-XbZ" kind="show" identifier="toDetailsView" id="GNO-it-ePX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-132" y="-23"/>
+            <point key="canvasLocation" x="-449" y="-23"/>
+        </scene>
+        <!--DetailsVC-->
+        <scene sceneID="ngV-um-eyv">
+            <objects>
+                <viewController id="r8o-rp-XbZ" customClass="DetailsVC" customModule="RobustaTask" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KW8-QQ-B4K">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8vD-NX-hNJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kWg-1g-TYb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mxc-80-fFj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="411" y="-28"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I9C-5h-88t">
@@ -38,7 +57,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ou4-IA-Zh7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-997" y="-23"/>
+            <point key="canvasLocation" x="-1251" y="-23"/>
         </scene>
     </scenes>
     <resources>

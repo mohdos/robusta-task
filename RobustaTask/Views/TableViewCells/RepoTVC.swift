@@ -10,6 +10,7 @@ import UIKit
 class RepoTVC: UITableViewCell {
 
     static let CELL_HEIGHT: CGFloat = 120
+    var repo: Repository? = nil
     
     private lazy var bgdView: UIView = {
         let bview = UIView()
@@ -67,14 +68,16 @@ class RepoTVC: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.contentView.addSubview(bgdView)
+//        self.backgroundColor = .yellow
+//        self.contentView.addSubview(bgdView)
+        self.addSubview(bgdView)
         self.bgdView.addSubview(nameLbl)
         self.bgdView.addSubview(ownerNameLbl)
         self.bgdView.addSubview(ownerImageView)
         self.bgdView.addSubview(repositoryImageView)
         self.bgdView.addSubview(creationDateLbl)
         
-        self.bgdView.edgeTo(self.contentView, top: 8, bottom: -8, leading: 8, trailing: -8)
+        self.bgdView.edgeTo(self, top: 8, bottom: -8, leading: 8, trailing: -8)
         NSLayoutConstraint.activate([
             ownerImageView.leadingAnchor.constraint(equalTo: self.bgdView.leadingAnchor, constant: 8),
             ownerImageView.topAnchor.constraint(equalTo: self.bgdView.topAnchor, constant: 8),
@@ -116,8 +119,9 @@ class RepoTVC: UITableViewCell {
     
     private func preprocessRepository(_ repository: Repository, _ completion: @escaping (Repository) -> Void)
     {
-        if (repository.createdAt == nil) {
+        if (repository.createdAt == nil || repository.createdAt!.isEmpty) {
             Api.shared.getRepositoryDetails(repository: repository) { repo in
+//                repo.update()
                 completion(repo)
             }
             return
@@ -128,13 +132,14 @@ class RepoTVC: UITableViewCell {
         }
     }
     
-    func configure(_ repository: Repository)
+    func configure(_ repository: Repository, completion: ((Repository) -> Void)?)
     {
         preprocessRepository(repository) { repo in
             self.ownerImageView.loadImageUsingCacheWithUrlString(repo.ownerAvatarUrl ?? "https://i.picsum.photos/id/283/200/200.jpg?hmac=Qyx_FaWqQPrmQrGhQNKh2t2FUuwTiMNTS1VCkc86YrM", completion: nil)
             self.nameLbl.text = repo.name
             self.ownerNameLbl.text = repo.ownerLogin
             self.creationDateLbl.text = repo.createdAt
+            completion?(repo)
         }
     }
 

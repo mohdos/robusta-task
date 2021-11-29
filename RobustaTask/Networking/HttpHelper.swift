@@ -15,7 +15,7 @@ class HttpHelper
     /// - Parameters:
     ///   - url: the url to perform get request
     ///   - completion: completion handler to handle response/result
-    static func `get`(url: String, queryParams: [String: String]? = nil, _ completion: ((_ result: Result<Data, Error>) -> Void)?)
+    static func `get`(url: String, headers: [String: String] = [:], queryParams: [String: String]? = nil, _ completion: ((_ result: Result<Data, Error>) -> Void)?)
     {
         guard var urlComponents = URLComponents(string: url) else {
             completion?(.failure(CustomErrors.invalidURL))
@@ -24,13 +24,20 @@ class HttpHelper
         urlComponents.queryItems = queryParams?.map { (key, value) in
             URLQueryItem(name: key, value: value)
         }
+        
         urlComponents.percentEncodedQuery = urlComponents.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
         
         guard let url = urlComponents.url else {
             completion?(.failure(CustomErrors.invalidURL))
             return
         }
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.allHTTPHeaderFields = [:]
+        for header in headers
+        {
+            request.allHTTPHeaderFields?[header.key] = header.value
+        }
+        
         let session = URLSession.shared.dataTask(with: request) { respData, response, error in
             if let error = error {
                 print(error.localizedDescription)
