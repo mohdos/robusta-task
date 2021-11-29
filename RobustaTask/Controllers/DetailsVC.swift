@@ -26,6 +26,17 @@ class DetailsVC: UIViewController {
         return rview
     }()
     
+    private lazy var repoLinkBtn: UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.backgroundColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
+        btn.setTitle("View repository", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        btn.layer.cornerRadius = 7
+        btn.addTarget(self, action: #selector(didTapViewRepo(_:)), for: .touchUpInside)
+        return btn
+    }()
+    
     private lazy var ownerView: UIView = {
         let sview = UIView()
         sview.translatesAutoresizingMaskIntoConstraints = false
@@ -66,18 +77,29 @@ class DetailsVC: UIViewController {
         
         self.view.addSubview(self.repoBgdView)
         self.repoBgdView.addSubview(self.repoStatsView)
+        self.repoBgdView.addSubview(self.repoLinkBtn)
         self.view.addSubview(self.ownerView)
         self.ownerView.addSubview(self.ownerDetailsView)
         self.view.addSubview(self.descriptionText)
         
-        self.repoStatsView.edgeTo(self.repoBgdView)
         self.ownerDetailsView.edgeTo(ownerView)
         
         NSLayoutConstraint.activate([
             self.repoBgdView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 8),
             self.repoBgdView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8),
             self.repoBgdView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            self.repoBgdView.heightAnchor.constraint(equalToConstant: 100),
+            self.repoBgdView.heightAnchor.constraint(equalToConstant: 170),
+            
+            self.repoStatsView.leadingAnchor.constraint(equalTo: self.repoBgdView.leadingAnchor, constant: 8),
+            self.repoStatsView.trailingAnchor.constraint(equalTo: self.repoBgdView.trailingAnchor, constant: -8),
+            self.repoStatsView.topAnchor.constraint(equalTo: self.repoBgdView.topAnchor, constant: 8),
+            self.repoStatsView.heightAnchor.constraint(equalToConstant: 100),
+            
+            self.repoLinkBtn.centerXAnchor.constraint(equalTo: self.repoBgdView.centerXAnchor, constant: 0),
+            self.repoLinkBtn.heightAnchor.constraint(equalToConstant: 40),
+            self.repoLinkBtn.widthAnchor.constraint(equalToConstant: 200),
+            self.repoLinkBtn.bottomAnchor.constraint(equalTo: self.repoBgdView.bottomAnchor, constant: -8),
+            
             
             self.ownerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 8),
             self.ownerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8),
@@ -104,6 +126,15 @@ class DetailsVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    @objc func didTapViewRepo(_ sender: UIButton)
+    {
+        guard let urlString = self.repository.htmlUrl, let url = URL(string: urlString) else {
+            return
+        }
+        url.openInBrowser()
     }
 
 }

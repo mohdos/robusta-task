@@ -68,8 +68,6 @@ class RepoTVC: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-//        self.backgroundColor = .yellow
-//        self.contentView.addSubview(bgdView)
         self.addSubview(bgdView)
         self.bgdView.addSubview(nameLbl)
         self.bgdView.addSubview(ownerNameLbl)
@@ -121,7 +119,6 @@ class RepoTVC: UITableViewCell {
     {
         if (repository.createdAt == nil || repository.createdAt!.isEmpty) {
             Api.shared.getRepositoryDetails(repository: repository) { repo in
-//                repo.update()
                 completion(repo)
             }
             return

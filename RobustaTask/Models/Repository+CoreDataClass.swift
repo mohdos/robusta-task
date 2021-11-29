@@ -77,9 +77,6 @@ public class Repository: NSManagedObject, Decodable {
     /// Inserts the current object to core data
     func insert()
     {
-//        if self.url != nil && self.isRepoInserted(url: self.url!) {
-//            return
-//        }
         if self.isInserted {
             return
         }
@@ -105,16 +102,7 @@ public class Repository: NSManagedObject, Decodable {
     /// - Parameter repos: array of repositories to save
     static func saveRepos(repos: [Repository])
     {
-//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-//            print(CustomErrors.unknownError)
-//            return
-//        }
-        
-//        let context = appDelegate.persistentContainer.newBackgroundContext()
-//        context.automaticallyMergesChangesFromParent = true
-        
         for repo in repos {
-//            repo.save()
             repo.insert()
         }
         
@@ -137,19 +125,12 @@ public class Repository: NSManagedObject, Decodable {
         context.automaticallyMergesChangesFromParent = true
         context.perform {
             do {
-//                let numberOfSavedRepos = Repository.getNumberOfSavedRepos()
-//                if (numberOfSavedRepos <= offset) {
-//                    completion?([])
-//                    return
-//                }
                 let request = Repository.fetchRequest()
                 request.fetchLimit = limit
                 request.fetchOffset = offset
-//                request.includesPendingChanges = false
                 
                 let repos = try context.fetch(request)
                 completion?(repos)
-//                try? context.save()
             }
             catch let error {
                 print(error.localizedDescription)

@@ -24,7 +24,6 @@ class HomeVC: UIViewController {
         return tv
     }()
     
-//    private let searchController = UISearchController(searchResultsController: SearchResultsVC())
     private let searchController = UISearchController()
     
     private final let api = Api()
@@ -33,7 +32,7 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
         Repository.deleteAllData()
         self.title = "Repositories"
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -71,7 +70,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return repos.count
         return isSearching ? self.searchedRepos.count : self.repos.count
     }
     
@@ -136,7 +134,6 @@ extension HomeVC: UISearchResultsUpdating, UISearchBarDelegate
             self.searchedRepos = repos
             self.tableView.reloadData()
         }
-        print(text)
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {

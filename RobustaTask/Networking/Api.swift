@@ -58,7 +58,7 @@ class Api
             returnSavedRepos()
             return
         }
-        HttpHelper.get(url: baseUrl + ENDPOINTS.repositories.rawValue, headers: ["Authorization": "token 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"]) { result in
+        HttpHelper.get(url: baseUrl + ENDPOINTS.repositories.rawValue, headers: ["Authorization": "token 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"]) { result in
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)
@@ -93,7 +93,7 @@ class Api
     /// - Parameter completion: completion handler to handle the returned repositories
     func getAllRepositories(_ completion: (([Repository]) -> Void)?)
     {
-        HttpHelper.get(url: baseUrl + ENDPOINTS.repositories.rawValue, headers: ["Authorization": "token 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"]) { result in
+        HttpHelper.get(url: baseUrl + ENDPOINTS.repositories.rawValue, headers: ["Authorization": "token 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"]) { result in
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)
@@ -131,7 +131,7 @@ class Api
             completion?(repository)
             return
         }
-        HttpHelper.get(url: repoUrl, headers: ["Authorization": "token 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"], queryParams: nil) { result in
+        HttpHelper.get(url: repoUrl, headers: ["Authorization": "token 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"], queryParams: nil) { result in
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)
@@ -164,7 +164,7 @@ class Api
     ///   - completion: completion handler to handle the returned matching repositories
     func searchRepository(query: String, page: Int = 0, _ completion: (([Repository]) -> Void)?)
     {
-        HttpHelper.get(url: baseUrl + ENDPOINTS.search.rawValue, headers: ["Authorization": "token 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"], queryParams: ["q": query, "per_page": String(Api.RESULTS_PER_PAGE), "page": String(page)]) { result in
+        HttpHelper.get(url: baseUrl + ENDPOINTS.search.rawValue, headers: ["Authorization": "token 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"], queryParams: ["q": query, "per_page": String(Api.RESULTS_PER_PAGE), "page": String(page)]) { result in
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)
