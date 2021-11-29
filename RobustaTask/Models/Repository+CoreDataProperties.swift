@@ -37,3 +37,9 @@ extension Repository {
 extension Repository : Identifiable {
 
 }
+
+
+class RepositorySearch: Decodable { // because searching returns the array of repositories with key items
+    var items: [Repository]
+}
+

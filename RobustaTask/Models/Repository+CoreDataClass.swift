@@ -53,6 +53,7 @@ public class Repository: NSManagedObject, Decodable {
         self.subscribersCount = try container.decodeIfPresent(Int64.self, forKey: .subscribersCount) ?? -1
         self.forksCount = try container.decodeIfPresent(Int64.self, forKey: .forksCount) ?? -1
         self.size = try container.decodeIfPresent(Int64.self, forKey: .size) ?? -1
+        self.createdAt = try container.decodeIfPresent(String.self, forKey: .createdAt) ?? ""
         
         let owner: Owner? = try container.decodeIfPresent(Owner.self, forKey: .owner)
         self.ownerId = Int64(owner?.id ?? -1)
@@ -79,42 +80,17 @@ public class Repository: NSManagedObject, Decodable {
     /// - Parameter repos: array of repositories to save
     static func saveRepos(repos: [Repository])
     {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            print(CustomErrors.unknownError)
-            return
-        }
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//            print(CustomErrors.unknownError)
+//            return
+//        }
         
-        let context = appDelegate.persistentContainer.newBackgroundContext()
-        context.automaticallyMergesChangesFromParent = true
-        
-        for repo in repos {
-            repo.save()
-//            if let managedObjectContext = repo.managedObjectContext
-//            {
-////                NSEntityDescription.insertNewObject(forEntityName: "Repository", into: managedObjectContext)
-//                repo.save()
-//            }
-        }
-        
-//        let context = appDelegate.persistentContainer.viewContext
 //        let context = appDelegate.persistentContainer.newBackgroundContext()
 //        context.automaticallyMergesChangesFromParent = true
         
-        
-//        context.perform {
-//            do {
-//                try context.save()
-//            }
-//            catch let error
-//            {
-//                print(error.localizedDescription)
-//            }
-//        }
-        
-        
-//        appDelegate.persistentContainer.performBackgroundTask { context in
-//
-//        }
+        for repo in repos {
+            repo.save()
+        }
         
     }
     
@@ -127,14 +103,13 @@ public class Repository: NSManagedObject, Decodable {
     /// - Returns: array of repositories
     static func fetchSavedRepos(offset: Int = 0, limit: Int = 10, _ completion: (([Repository]) -> Void)?)
     {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            print(CustomErrors.unknownError)
-            completion?([])
-//            return []
-            return
-        }
-//        let context = appDelegate.persistentContainer.viewContext
-        let context = appDelegate.persistentContainer.newBackgroundContext()
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//            print(CustomErrors.unknownError)
+//            completion?([])
+//            return
+//        }
+//        let context = appDelegate.persistentContainer.newBackgroundContext()
+        let context = ContextManager.backgroundContext!
         context.automaticallyMergesChangesFromParent = true
         context.perform {
             do {
@@ -148,33 +123,20 @@ public class Repository: NSManagedObject, Decodable {
             catch let error {
                 print(error.localizedDescription)
                 completion?([])
-//                return []
             }
         }
-        
-//        let request = Repository.fetchRequest()
-//        request.fetchLimit = limit
-//        request.fetchOffset = offset
-//
-//        do {
-//            let repos = try context.fetch(request)
-//            return repos
-//        }
-//        catch let error {
-//            print(error.localizedDescription)
-//            return []
-//        }
     }
     
     
     /// Deletes all repositories saved
     static func deleteAllData()
     {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            print(CustomErrors.unknownError)
-            return
-        }
-        let context = appDelegate.persistentContainer.viewContext
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+//            print(CustomErrors.unknownError)
+//            return
+//        }
+//        let context = appDelegate.persistentContainer.viewContext
+        let context = ContextManager.viewContext!
         let fetchRequest = Repository.fetchRequest()
         fetchRequest.returnsObjectsAsFaults = false
         do {
@@ -184,7 +146,7 @@ public class Repository: NSManagedObject, Decodable {
             }
             try context.save()
         } catch let error {
-            print("Detele all data in \(entity) error :", error)
+            print("Detele all data error: ", error.localizedDescription)
         }
     }
     
